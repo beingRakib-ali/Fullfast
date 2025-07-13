@@ -12,16 +12,32 @@ class UserBase(BaseModel):
     class Config:
         orm_mode = True
 
+class ShowUser(BaseModel):
+    Name:str
+    Email:str
+    # Password:str
+    class Config:
+        orm_mode = True
+
 class CustomerBase(BaseModel):
    
     Name: str
     Address: str
     Phone:str
     Email: str
+    # Creator:ShowUser
+    # class Config:
+    #     orm_mode = True
 
+class CustomerViewBase(BaseModel):
+   
+    Name: str
+    Address: str
+    Phone:str
+    Email: str
+    # Creator:ShowUser
     class Config:
         orm_mode = True
-
 
 class LoginBase(BaseModel):
     # Name:str
@@ -29,6 +45,9 @@ class LoginBase(BaseModel):
     Password:str
     class Config:
         orm_mode = True
+
+
+
 
 
 class Login(BaseModel):
