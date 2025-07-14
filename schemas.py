@@ -1,6 +1,4 @@
 from pydantic import BaseModel
-import models
-from database import Base
 
 
 
@@ -49,9 +47,15 @@ class LoginBase(BaseModel):
 
 
 
-
 class Login(BaseModel):
     # Name:str
-    Massage:str
+    massage:str
+    class Config:
+        orm_mode = True
+
+
+
+class Massage(BaseModel):
+    massage:str
     class Config:
         orm_mode = True

@@ -1,14 +1,35 @@
-from fastapi import FastAPI
-import models
-from database import engine,get_db
-from routers import user,customer
+from fastapi import FastAPI,Depends
+import models,routers,routers.user,routers.customer
+from database import engine
 
+
+# models.Base.metadata.drop_all(bind=engine)
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.include_router(user.route)
-app.include_router(customer.route)
+
+app.include_router(routers.user.route)
+app.include_router(routers.customer.route)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # @app.post('/user/', status_code=201,tags=['Users'],response_model=schemas.UserBase)
@@ -36,10 +57,10 @@ app.include_router(customer.route)
 #     valid = hasing.Hash.verify_password(user.Password,get_user.Password)
 #     if not valid:
 #         raise HTTPException(status_code=401, detail="Password Incorrect")
-#     return {"Massage":"Successfully Login"}
+#     return {"massage":"Successfully Login"}
 
 
-# @app.get('/users/main',status_code=200,response_model=List[schemas.UserBase],tags=['Users'])
+# @app.get('/users/',status_code=200,response_model=List[schemas.UserBase],tags=['Users'])
 # def get_users(db:db_dp):
 #     get_user = db.query(models.User).all()
 #     return get_user
