@@ -2,6 +2,7 @@ from fastapi import HTTPException,Depends,status
 import models
 
 
+
 def create_customer(customer,db):
     addcs = models.Customer(**customer.model_dump())
     db.add(addcs)
