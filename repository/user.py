@@ -23,11 +23,11 @@ def create_user(user,db):
     return add_user
 
 
-def Login(user,db):
-    get_user = db.query(models.User).filter(models.User.Email == user.Email).first()
-    if get_user is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="User Not Found!")
-    valid = hasing.Hash.verify_password(user.Password,get_user.Password)
-    if not valid:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Password Incorrect")
-    return {"massage":"Successfully Login"}
+# def Login(user,db):
+#     get_user = db.query(models.User).filter(models.User.Email == user.Email).first()
+#     if get_user is None:
+#         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="User Not Found!")
+#     valid = hasing.Hash.verify_password(user.Password,get_user.Password)
+#     if not valid:
+#         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Password Incorrect")
+#     return {"massage":"Successfully Login"}

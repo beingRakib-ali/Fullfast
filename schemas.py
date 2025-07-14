@@ -39,8 +39,8 @@ class CustomerViewBase(BaseModel):
 
 class LoginBase(BaseModel):
     # Name:str
-    Email:str
-    Password:str
+    username:str
+    password:str
     class Config:
         orm_mode = True
 
@@ -59,3 +59,12 @@ class Massage(BaseModel):
     massage:str
     class Config:
         orm_mode = True
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: str 

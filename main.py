@@ -1,4 +1,5 @@
 from fastapi import FastAPI,Depends
+import routers.authenticate
 import models,routers,routers.user,routers.customer
 from database import engine
 
@@ -11,6 +12,7 @@ app = FastAPI()
 
 app.include_router(routers.user.route)
 app.include_router(routers.customer.route)
+app.include_router(routers.authenticate.route)
 
 
 
