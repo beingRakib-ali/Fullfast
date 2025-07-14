@@ -23,3 +23,4 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)],db:db_d
     if user is None:
         raise credentials_exception
     return user
+

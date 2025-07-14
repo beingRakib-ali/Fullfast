@@ -2,7 +2,7 @@ from fastapi import APIRouter,Depends,HTTPException,status
 from typing import List,Annotated
 from sqlalchemy.orm import Session
 import repository.customer
-import database,models,schemas,hasing,repository,oauth2
+import database,schemas,repository,oauth2
 
 db_dp = Annotated[Session,Depends(database.get_db)]
 
@@ -13,7 +13,6 @@ route = APIRouter(
     prefix="/customer",
     tags=["/Customer"]
 )
-
 
 
 
