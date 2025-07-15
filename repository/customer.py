@@ -10,8 +10,11 @@ def create_customer(customer,db):
     db.refresh(addcs)
     return addcs
 
-def get_customers(db):
-    data = db.query(models.Customer).all()
+def get_customers(db,offset,limit):
+    if offset < 0 or limit <= 0 or limit > 1000:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Offset and limit must be positive integers and less then 1000.")
+
+    data = db.query(models.Customer).offset(offset).limit(limit).all()
     if data is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Data not found!")
     return data

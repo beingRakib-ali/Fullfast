@@ -14,7 +14,7 @@ route = APIRouter(
 db_dp = Annotated[Session,Depends(get_db)]
 
 
-@route.post('/',status_code=201,response_model=schemas.Token)
+@route.post('/',status_code=200,response_model=schemas.Token)
 async def Login(db: db_dp, user: OAuth2PasswordRequestForm=Depends()):
     get_user = db.query(models.User).filter(models.User.Email == user.username).first()
     if get_user is None:

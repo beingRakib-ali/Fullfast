@@ -22,8 +22,8 @@ def create_customer(customer:schemas.CustomerBase,db:db_dp,current_user:get_curr
 
 
 @route.get("/",status_code=200,response_model=List[schemas.CustomerViewBase])
-def get_customers(db:db_dp):
-    return repository.customer.get_customers(db)
+def get_customers(db:db_dp,current_users:get_current_user,offset:int=0,limit:int=100):
+    return repository.customer.get_customers(db,offset=offset,limit=limit)
 
 
 @route.get('/get_single/{id}',status_code=status.HTTP_200_OK,response_model=schemas.CustomerViewBase)
