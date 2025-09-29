@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, Float,String,Boolean, ForeignKey
+import datetime
+from sqlalchemy import Column, DateTime, Integer, Float,String,Boolean, ForeignKey
 from database import Base
 from sqlalchemy.orm import Relationship
 
@@ -21,3 +22,19 @@ class Customer(Base):
     Email = Column(String)
     # UserID = Column(Integer, ForeignKey("user.UserID"))
     # creator = Relationship("User",back_populates="Customer")
+
+class Employee(Base):
+    __tablename__ = "employees"
+
+    id = Column(String, primary_key=True, index=True)
+    KeyID = Column(String, unique=True, nullable=False)
+    civilId = Column(String, unique=True, nullable=False)
+    nameArabic = Column(String, nullable=False)
+    jobArabic = Column(String, nullable=True)
+    companyArabic = Column(String, nullable=True)
+    nationalityArabic = Column(String, nullable=True)
+    categoryArabic = Column(String, nullable=True)
+    issueDate = Column(DateTime, nullable=False)
+    endDate = Column(DateTime, nullable=False)
+    profilePhoto = Column(String, nullable=True)
+    createdAt = Column(DateTime, default=datetime.datetime.utcnow)
