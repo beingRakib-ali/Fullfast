@@ -28,7 +28,7 @@ class Employee(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     extraID = Column(Integer, nullable=False)
-    civilId = Column(Integer, unique=True, nullable=False)
+    civilId = Column(String, nullable=False)
     nameArabic = Column(String, nullable=False)
     jobArabic = Column(String, nullable=True)
     companyArabic = Column(String, nullable=True)
