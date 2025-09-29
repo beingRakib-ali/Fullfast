@@ -68,3 +68,28 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     email: str 
+
+
+
+
+class EmployeeBase(BaseModel):
+    id: str
+    keyID: str
+    civilId: str
+    nameArabic: str
+    jobArabic: str
+    companyArabic: str
+    nationalityArabic: str
+    categoryArabic: str
+    issueDate: str
+    endDate: str
+    profilePhoto: str
+    createdAt: str
+
+    class Config:
+        orm_mode = True
+
+
+
+class Message(BaseModel):
+    message: str
