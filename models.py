@@ -26,9 +26,9 @@ class Customer(Base):
 class Employee(Base):
     __tablename__ = "employees"
 
-    id = Column(String, primary_key=True, index=True)
-    KeyID = Column(String, unique=True, nullable=False)
-    civilId = Column(String, unique=True, nullable=False)
+    id = Column(Integer, primary_key=True, index=True)
+    extraID = Column(Integer, nullable=False)
+    civilId = Column(Integer, unique=True, nullable=False)
     nameArabic = Column(String, nullable=False)
     jobArabic = Column(String, nullable=True)
     companyArabic = Column(String, nullable=True)

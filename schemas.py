@@ -1,5 +1,6 @@
+from typing import Optional
 from pydantic import BaseModel
-
+from datetime import datetime
 
 
 class UserBase(BaseModel):
@@ -73,18 +74,19 @@ class TokenData(BaseModel):
 
 
 class EmployeeBase(BaseModel):
-    id: str
-    keyID: str
-    civilId: str
+    id: int
+    extraID: int
+    civilId: int
     nameArabic: str
     jobArabic: str
     companyArabic: str
     nationalityArabic: str
     categoryArabic: str
-    issueDate: str
-    endDate: str
+    issueDate: datetime
+    endDate: datetime
     profilePhoto: str
-    createdAt: str
+    createdAt: Optional[datetime] = None  # optional, will default in SQLAlchemy
+
 
     class Config:
         orm_mode = True
