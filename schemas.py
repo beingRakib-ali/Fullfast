@@ -76,7 +76,7 @@ class TokenData(BaseModel):
 class EmployeeBase(BaseModel):
     id: int
     extraID: int
-    civilId: int
+    civilId: str
     nameArabic: str
     jobArabic: str
     companyArabic: str
